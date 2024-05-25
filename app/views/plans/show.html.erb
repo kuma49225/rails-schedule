@@ -1,10 +1,12 @@
 <%= render "shared/partial" %>
 
-<%= link_to "一覧に戻る", :plans %>
-
-<%= @plan.title %>
 <%= form_with model: @plan do |f| %>
   <table>
+    <tr>
+      <th>タイトル</th>
+      <td><%= @plan.title %></td>
+    </tr>
+
     <tr>
       <th>開始日</th>
       <td><%= l @plan.start_date %></td>
@@ -27,3 +29,5 @@
   </table>
 
 <% end %>
+
+<%= link_to "一覧に戻る", :plans %>

@@ -1,6 +1,17 @@
 <h3>ユーザー新規作成</h3>
 
 <%= form_with model: @plan do |f| %>
+  <% if @plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+      <ul>
+        <% @plan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <table>
     <tr>
       <th><%= f.label :title ,"タイトル" %></th>
